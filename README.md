@@ -36,11 +36,13 @@ model/
   metrics.json                   AUC, decile activation rates, coefficients
 outputs/
   inactive_sellers_scored.csv    today's 11,826 inactive sellers with their score
-  model_simulation.mp4           34-second animation used in the presentation
+  logistic_curve.mp4             26-second text-free animation used in the presentation:
+                                 the logistic curve is fitted, then today's sellers are
+                                 mapped onto it to read off their score
 src/
   generate_data.py               builds the synthetic data
   train_model.py                 trains, tests and scores
-  make_animation.py              renders the animation
+  make_curve_animation.py        renders the animation
   bigquery_ml.sql                how the same model would run in BigQuery ML
 fonts/                           Public Sans (SIL Open Font License), used by the animation
 ```
@@ -53,7 +55,7 @@ Python 3.10+ and, for the animation, ffmpeg.
 pip install -r requirements.txt
 python src/generate_data.py      # writes data/
 python src/train_model.py        # writes model/ and outputs/inactive_sellers_scored.csv
-python src/make_animation.py     # writes outputs/model_simulation.mp4
+python src/make_curve_animation.py   # writes outputs/logistic_curve.mp4
 ```
 
 Run the scripts from the repository root. Generation uses a fixed random seed (42), so the results above are reproducible.
